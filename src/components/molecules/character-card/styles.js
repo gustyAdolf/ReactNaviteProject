@@ -3,8 +3,9 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   card: {
-    width: windowWidth,
+    width: windowWidth / 2,
     height: undefined,
+    flexDirection: "row",
     borderRadius: 20,
     padding: 20,
     ...Platform.select({
@@ -19,25 +20,30 @@ const styles = StyleSheet.create({
     }),
   },
   infoContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     padding: 20,
     backgroundColor: "#35303F",
-    borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+    borderTopRightRadius: 20,
   },
-  title: {
+  info: {
+    fontWeight: "normal",
+    fontSize: 16,
+    flex: 1,
+    color: 'white'
+  },
+  label: {
     fontWeight: "bold",
     fontSize: 16,
     flex: 1,
-    textAlign: "center",
-    color: "white",
+    color: 'white'
   },
   image: {
-    width: "100%",
-    height: 200,
+    width: windowWidth / 2,
+    height: undefined,
     resizeMode: "cover",
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
   },
 });
 

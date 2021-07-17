@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { FlatList, SafeAreaView, Text, View } from "react-native";
+import CharacterCard from "../../molecules/character-card";
+import { Actions } from "react-native-router-flux";
+import styles from "./styles";
 
 class Characters extends Component {
   constructor(props) {
@@ -10,15 +13,23 @@ class Characters extends Component {
     this.props.initList();
   }
 
+  onCharacterTapped = character => {
+    // this.props.setCharacter(character);
+    Actions.push("Character");
+  };
+
   render() {
 
     return (
-        <SafeAreaView>
-          <FlatList data={this.props.list}
-                    renderItem={({ item }) => (
-                      <Text>{item.name} </Text>
-                    )} />
-        </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <FlatList data={this.props.list}
+                  contentContainerStyle={styles.contentContainer}
+                  renderItem={({ item }) => (
+                    <CharacterCard character={item}
+                                   onPress={this.onCharacterTapped} />
+                  )}
+        numColumns={1}/>
+      </SafeAreaView>
     );
   }
 }

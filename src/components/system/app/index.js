@@ -20,7 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Stack key="root">
-            <Scene key="Home" title="Category" component={Home} initial />
+            <Scene key="Home" title="Categories" component={Home} initial />
             <Scene key="Characters" component={Characters} {...navBarProps} />
             <Scene key="Episodes" component={Episodes} {...navBarProps} />
             <Scene key="Locations" component={Locations} {...navBarProps} />
