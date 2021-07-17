@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, SafeAreaView, Text, View } from "react-native";
+import { FlatList, RefreshControl, SafeAreaView, Text, View } from "react-native";
 import CharacterCard from "../../molecules/character-card";
 import { Actions } from "react-native-router-flux";
 import styles from "./styles";
@@ -24,6 +24,12 @@ class Characters extends Component {
       <SafeAreaView style={styles.container}>
         <FlatList data={this.props.list}
                   contentContainerStyle={styles.contentContainer}
+                  refreshControl={
+                    <RefreshControl
+                      refreshing={this.props.loading}
+                      onRefresh={this.props.initList}
+                    />
+                  }
                   renderItem={({ item }) => (
                     <CharacterCard character={item}
                                    onPress={this.onCharacterTapped} />

@@ -10,7 +10,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  console.log(dispatch);
   return {
     initList: () => {
       dispatch(charactersAction.getList());
