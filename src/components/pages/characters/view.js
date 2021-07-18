@@ -3,6 +3,7 @@ import { FlatList, RefreshControl, SafeAreaView, Text, View } from "react-native
 import CharacterCard from "../../molecules/character-card";
 import { Actions } from "react-native-router-flux";
 import styles from "./styles";
+import CharacterSearch from "../../organism/character-form";
 
 class Characters extends Component {
   constructor(props) {
@@ -14,14 +15,18 @@ class Characters extends Component {
   }
 
   onCharacterTapped = character => {
-    // this.props.setCharacter(character);
-    Actions.push("Character");
+    this.props.setCharacter(character);
+    Actions.push("Character", {character});
   };
 
-  render() {
+  searchCharacter = (value) => {
+    this.props.onSubmit(value);
+  }
 
+  render() {
     return (
       <SafeAreaView style={styles.container}>
+        <CharacterSearch onSubmit={value => this.searchCharacter(value)}></CharacterSearch>
         <FlatList data={this.props.list}
                   contentContainerStyle={styles.contentContainer}
                   refreshControl={

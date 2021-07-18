@@ -6,7 +6,7 @@ import Home from "../../pages/home";
 import Characters from "../../pages/characters/index";
 import Episodes from "../../pages/episodes";
 import Locations from "../../pages/location";
-
+import Character from "../../pages/character";
 
 const navBarProps = {
   backTitle: "Categories",
@@ -24,6 +24,7 @@ class App extends Component {
             <Scene key="Characters" component={Characters} {...navBarProps} />
             <Scene key="Episodes" component={Episodes} {...navBarProps} />
             <Scene key="Locations" component={Locations} {...navBarProps} />
+            <Scene key="Character" component={Character} {...navBarProps} />
           </Stack>
         </Router>
       </Provider>

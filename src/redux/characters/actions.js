@@ -23,6 +23,22 @@ export const setItem = item => {
   };
 };
 
+export const getCharacterByName = name => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch(setLoading(true));
+      const params = { name: name };
+      const response = await api.getCharacterBy(params);
+      const list = response.data?.results || [];
+      dispatch(setList(list));
+    } catch (e) {
+      Alert.alert("Error", e.message || "Ha ocurrido un error");
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
+};
+
 export const getList = () => {
   return async (dispatch, getState) => {
     try {

@@ -20,3 +20,8 @@ export const getLocations = () => {
   const url = "/location";
   return aInstance.get(url);
 };
+
+export const getCharacterBy = params => {
+  const url = "/character";
+  return aInstance.get(url, {params});
+};

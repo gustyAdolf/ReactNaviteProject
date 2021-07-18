@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Component from "./view";
-import * as charactersAction from '../../../redux/characters/actions';
+import * as charactersAction from "../../../redux/characters/actions";
 
 const mapStateToProps = state => {
   return {
@@ -14,9 +14,13 @@ const mapDispatchToProps = dispatch => {
     initList: () => {
       dispatch(charactersAction.getList());
     },
+    setCharacter: character => {
+      dispatch(charactersAction.setItem(character));
+    },
     setLoading: value => {
       dispatch(charactersAction.setLoading(value));
-    }
+    },
+    onSubmit: name => dispatch(charactersAction.getCharacterByName(name)),
   };
 };
 
